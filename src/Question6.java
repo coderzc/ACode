@@ -23,10 +23,8 @@ public class Question6 {
         int rightNum = endIn - i;//右子树节点数
         bt.leftNode = reConstruct(preOrder, startpre + 1, startpre + leftNum, inOrder, startIn, i - 1);
         bt.rightNode = reConstruct(preOrder, endpre - rightNum + 1, endpre, inOrder, i + 1, endIn);
-
         return bt;
     }
-
 
     public static void main(String[] args) {
 
