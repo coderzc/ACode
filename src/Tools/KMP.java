@@ -1,4 +1,4 @@
-package my;
+package Tools;
 
 /**
  * str是否包含reg
@@ -14,7 +14,7 @@ public class KMP {
 
     //next数组表示匹配失败时模式字符串指针下一步要移动到的位置
     // ******next[j]=前(j-1)字串的最长前、后缀匹配长度 ........这里我也没弄懂要数学证明，先记下来********
-    public static int[] getNext(String pString) {
+    private static int[] getNext(String pString) {
 
         char[] p = pString.toCharArray();
 
@@ -33,15 +33,12 @@ public class KMP {
             } else {
                 k = next[k];
             }
-
         }
-
         return next;
-
     }
 
 
-    public static int kmp(String tString,String pString) {
+    public static int kmp(String tString, String pString) {
         char[] t = tString.toCharArray();
         char[] p = pString.toCharArray();
 

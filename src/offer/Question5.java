@@ -1,8 +1,6 @@
-/**
+package offer; /**
  * 反向输出单链表
  */
-
-import java.util.LinkedList;
 import java.util.Stack;
 
 class ListNode {

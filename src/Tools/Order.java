@@ -36,7 +36,7 @@ public class Order {
 
     //层序遍历
     public static void levelOrder(TreeNode tree){
-        Queue<TreeNode> queue= new LinkedList();
+        Queue<TreeNode> queue= new LinkedList<TreeNode>();
         queue.offer(tree);
         while (!queue.isEmpty()){
             TreeNode node = queue.poll();
@@ -51,7 +51,7 @@ public class Order {
 
     //层序遍历(分层带编号）
     public static void levelOrder2(TreeNode tree){
-        Queue<TreeNode> queue= new LinkedList();
+        Queue<TreeNode> queue= new LinkedList<TreeNode>();
         queue.offer(tree);
 
         int current=1;//当前层 还未打印的结点个数
