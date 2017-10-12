@@ -76,8 +76,6 @@ public class Order {
                 current=next;
                 next=0;
                 number++;
-                System.out.println("\n");
-
             }
         }
     }
