@@ -1,15 +1,17 @@
 package Tools;
 
+import java.util.Arrays;
+
 /**
  * str是否包含reg
  */
 public class KMP {
     public static void main(String[] args) {
-        String str = "ababccd";
-        String reg = "abc";
-        int isPattern = kmp(str, reg);
-        System.out.println(isPattern);
-
+//        String str = "ababccd";
+//        String reg = "abc";
+//        int isPattern = kmp(str, reg);
+//        System.out.println(isPattern);
+        System.out.println(Arrays.toString(getNextVal("ababbabacbaab")));
     }
 
     //next数组表示匹配失败时模式字符串指针下一步要移动到的位置
@@ -28,8 +30,40 @@ public class KMP {
 
         while (j + 1 < p.length) {//注意下标 每次我们求的是next[j+1]  所以j到不了最后一位
 
-            if (k==-1||p[j] == p[k]) { //即p[j]==p[ next[j] ]
-                next[++j] = ++k;
+            if (k == -1 || p[j] == p[k]) { //即p[j]==p[ next[j] ]
+                j++;
+                k++;
+                next[j] = k;
+            } else {
+                k = next[k];
+            }
+        }
+        return next;
+    }
+
+
+    private static int[] getNextVal(String pString) {
+
+        char[] p = pString.toCharArray();
+
+        int[] next = new int[p.length];
+
+        int k = -1;//k -> next[]每一位的值
+
+        int j = 0;//模式字符串临时指针
+
+        next[0] = -1;//第0位特殊位置(模式字符串不变，文本字符串向后)
+
+        while (j + 1 < p.length) {//注意下标 每次我们求的是next[j+1]  所以j到不了最后一位
+
+            if (k == -1 || p[j] == p[k]) { //即p[j]==p[ next[j] ]
+                j++;
+                k++;
+                if (p[j] != p[k])//这才是当前字符,永远记住 p[j] 在循环开始时是指前一个字符
+                    next[j] = k;
+                else
+                    next[j] = next[k];//这是优化的重点
+
             } else {
                 k = next[k];
             }
@@ -42,23 +76,23 @@ public class KMP {
         char[] t = tString.toCharArray();
         char[] p = pString.toCharArray();
 
-        int i=0;
-        int j=0;
+        int i = 0;
+        int j = 0;
 
-        int[] next=getNext(pString);
+        int[] next = getNext(pString);
 
-        while (i<t.length&&j<p.length){
-            if(j==-1||t[i]==p[j]){ // 当j为-1时，要移动的是i，当然j也要归0
+        while (i < t.length && j < p.length) {
+            if (j == -1 || t[i] == p[j]) { // 当j为-1时，要移动的是i，当然j也要归0
                 i++;
                 j++;
-            }else {
-                j=next[j];
+            } else {
+                j = next[j];
             }
         }
 
-        if(j==p.length){
-            return i-j;
-        }else {
+        if (j == p.length) {
+            return i - j;
+        } else {
             return -1;
         }
 

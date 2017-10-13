@@ -1,7 +1,5 @@
 package niukeBAT.strings;
 
-import java.util.Arrays;
-
 /**
  * 拼接最小字典序
  */
