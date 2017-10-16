@@ -1,4 +1,4 @@
-package my;
+package exam;
 /**
  * 寻找第n个丑数
  */

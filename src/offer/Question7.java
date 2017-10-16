@@ -18,7 +18,6 @@ public class Question7<T> {
     public void offerQueue(T t) {
         stack1.push(t);
         size++;
-        LinkedList linkedList = new LinkedList();
     }
 
     public T pollQueue(){
@@ -28,18 +27,19 @@ public class Question7<T> {
                 stack2.push(pop);
             }
         }
-        if (stack2.isEmpty()) {
-            return null;
-        } else {
+
+        if (!stack2.isEmpty()) {
             size--;
             return stack2.pop();
+        } else {
+            return null;
         }
 
     }
 
 
     public static void main(String[] args) {
-        Question7<Integer> question7 = new Question7();
+        Question7<Integer> question7 = new Question7<>();
         for (int i = 0; i < 10; i++) {
             question7.offerQueue(i);
         }

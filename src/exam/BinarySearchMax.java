@@ -1,6 +1,6 @@
-package my;
+package exam;
 /**
- *  二分查找相同元素最大下标
+ *  二分查找 (相同元素取最大下标)
  */
 public class BinarySearchMax {
     public static void main(String[] args) {
