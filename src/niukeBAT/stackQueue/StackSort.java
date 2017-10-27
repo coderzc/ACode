@@ -3,7 +3,7 @@ package niukeBAT.stackQueue;
 import java.util.Stack;
 
 /**
- * 栈排序
+ * 栈排序 需要另一个栈
  */
 public class StackSort {
     public static void main(String[] args) {
@@ -21,11 +21,11 @@ public class StackSort {
     private static void sortStack(Stack<Integer> stack) {
         Stack<Integer> help = new Stack<>();
         while (!stack.isEmpty()) {
-            Integer pop = stack.pop();
-            while (!help.isEmpty() && help.peek() > pop) {
+            Integer cur = stack.pop();
+            while (!help.isEmpty() && help.peek() > cur) {
                 stack.push(help.pop());
             }
-            help.push(pop);
+            help.push(cur);
         }
         while (!help.isEmpty()){
             Integer pop = help.pop();

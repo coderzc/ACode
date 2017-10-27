@@ -3,7 +3,7 @@ package niukeBAT.stackQueue;
 import java.util.Stack;
 
 /**
- * 逆序栈
+ * 逆序栈 空间复杂度O(1)
  */
 public class ReversedStack {
 
