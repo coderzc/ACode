@@ -1,6 +1,6 @@
 package niukeBAT.strings;
 
-import Tools.KMP;
+import tools.KMP;
 
 /**
  * 判断两个此是否互为旋转词

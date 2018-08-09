@@ -3,7 +3,7 @@ package niukeBAT.linklist;
  * 反转单链表
  */
 
-import Tools.LinkListNode;
+import tools.LinkListNode;
 
 public class ReverseList {
     public static void main(String[] args) {
