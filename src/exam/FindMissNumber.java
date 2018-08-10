@@ -1,9 +1,5 @@
 package exam;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * 查找从一到N中缺失的2个数
  */
