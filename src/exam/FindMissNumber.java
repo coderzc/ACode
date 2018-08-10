@@ -1,0 +1,41 @@
+package exam;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * 查找从一到N中缺失的2个数
+ */
+public class FindMissNumber {
+
+    public static int[] findMissNumber(int[] arr) {
+        if (null == arr || arr.length <= 1) {
+            return new int[]{-1, -1};
+        }
+        boolean[] b = new boolean[arr.length + 2];
+
+        int[] rets = new int[2];
+        for (int i = 0; i < arr.length; i++) {
+            b[arr[i] - 1] = true;
+        }
+
+        int j = 0;
+        for (int i = 0; i < b.length; i++) {
+            if (!b[i]) {
+                rets[j++] = i + 1;
+            }
+        }
+
+        return rets;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 3, 9, 5, 6, 1};
+        int[] missNumber = findMissNumber(arr);
+        for (int i = 0; i < missNumber.length; i++) {
+            System.out.println(missNumber[i]);
+        }
+    }
+
+}
