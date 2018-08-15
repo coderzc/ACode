@@ -1,9 +1,9 @@
 package basicAlgorithm.graph.shortestPath;
 
-import graph.defineGraph.Edge;
-import graph.defineGraph.Graph;
-import graph.defineGraph.SparseGraph;
-import heap.IndexPrirotyQueue;
+import basicAlgorithm.graph.defineGraph.Edge;
+import basicAlgorithm.graph.defineGraph.Graph;
+import basicAlgorithm.graph.defineGraph.SparseGraph;
+import basicAlgorithm.heap.IndexPrirotyQueue;
 
 import java.io.IOException;
 import java.nio.file.Files;

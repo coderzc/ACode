@@ -1,7 +1,7 @@
 package basicAlgorithm.graph.traversal;
 
-import graph.defineGraph.DenseGraph;
-import graph.defineGraph.Graph;
+import basicAlgorithm.graph.defineGraph.DenseGraph;
+import basicAlgorithm.graph.defineGraph.Graph;
 
 import java.util.LinkedList;
 import java.util.List;

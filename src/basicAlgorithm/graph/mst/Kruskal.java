@@ -1,9 +1,9 @@
 package basicAlgorithm.graph.mst;
 
-import graph.defineGraph.Edge;
-import graph.defineGraph.Graph;
-import graph.defineGraph.SparseGraph;
-import unionFind.UnionFind;
+import basicAlgorithm.graph.defineGraph.Edge;
+import basicAlgorithm.graph.defineGraph.Graph;
+import basicAlgorithm.graph.defineGraph.SparseGraph;
+import basicAlgorithm.unionFind.UnionFind;
 
 import java.io.IOException;
 import java.nio.file.Files;
