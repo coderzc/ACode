@@ -6,7 +6,7 @@ package basicAlgorithm.sort;
 
 public class BasicSort {
     public static void main(String[] args) {
-        int array[] = {9, 8, 7, 6, 5, 3, 4, 2, 1};
+        int array[] = {9, 8, 7, 6, 5, 3, 4, 4, 1};
 
 //        bubbleSort(array);
 
@@ -41,7 +41,7 @@ public class BasicSort {
     private static void bubbleSort(int arr[]) {
         int n = arr.length;
         boolean flag = false;//是否已经正序
-        for (int i = 0; flag == false; i++) {
+        for (int i = 0; !flag; i++) {
             flag = true;
             for (int j = 0; j < n - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
