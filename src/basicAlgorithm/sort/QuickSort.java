@@ -6,7 +6,7 @@ package basicAlgorithm.sort;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int array[] = {7, 6, 4, 10, 9, 2, 7, 7, 10, 6, 5, 1, 3, 4, 8, 1, 2, 3};
+        int array[] = {2, 1};
 
         quickSort(array);
 
@@ -96,7 +96,7 @@ public class QuickSort {
             return;
         }
 
-        swap(array, l, ((int) (Math.random() * (r - l)) + l));
+//        swap(array, l, ((int) (Math.random() * (r - l)) + l));
         int pivote = array[l];//基点放到最左边
 
         int i = l + 1;//左边比基点小的标志位
@@ -147,8 +147,8 @@ public class QuickSort {
 
     private static void quickSort(int[] array) {
 //        quickSort1(array, 0, array.length - 1);
-//        quickSort2(array, 0, array.length - 1);
-        quickSort(array, 0, array.length - 1);
+        quickSort2(array, 0, array.length - 1);
+//        quickSort(array, 0, array.length - 1);
 //        quickSort3(array, 0, array.length - 1);
     }
 
