@@ -6,7 +6,7 @@ package basicAlgorithm.sort;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int array[] = {2, 1};
+        int array[] = {1, 1, 1, 2};
 
         quickSort(array);
 
@@ -109,7 +109,7 @@ public class QuickSort {
                 j--;
             }
 
-            if (i > j) break;
+            if (i >= j) break;
             else swap(array, i++, j--);
 
         }

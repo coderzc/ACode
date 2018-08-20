@@ -34,4 +34,31 @@ public class Q167 {
     }
 
 
+    //O(n) 指针碰撞
+    public int[] twoSum2(int[] numbers, int target) {
+        int[] ret = new int[2];
+
+        int l = 0;
+        int r = numbers.length - 1;
+        while (l < r) {
+            if (numbers[l] + numbers[r] == target) {
+                ret[0] = l + 1;
+                ret[1] = r + 1;
+                return ret;
+            } else if (numbers[l] + numbers[r] < target) {
+                l++;
+            } else {
+                r--;
+            }
+        }
+        return ret;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 7, 11, 15};
+        Q167 q167 = new Q167();
+        int[] ints = q167.twoSum2(arr, 9);
+        System.out.println(ints[0] + "--" + ints[1]);
+    }
+
 }
