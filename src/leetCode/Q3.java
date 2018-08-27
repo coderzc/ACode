@@ -8,9 +8,9 @@ import java.util.HashMap;
 public class Q3 {
 
     public static void main(String[] args) {
-        String s = "aab";
+        String s = "abcabcbb";
         Q3 q3 = new Q3();
-        int i = q3.lengthOfLongestSubstring3(s);
+        int i = q3.lengthOfLongestSubstring2(s);
         System.out.println(i);
     }
 
@@ -52,17 +52,22 @@ public class Q3 {
         int r = 0;
         int ret = 0;
         while (r < chars.length) {
-            if (fre[chars[r]] > 0 && l < chars.length) {
-                ret = Math.max(ret, r - l);
-                do {
-                    fre[chars[l++]]--;
-                }
-                while (chars[l - 1] != chars[r]);
+
+            while (r < chars.length && fre[chars[r]] == 0) {
+                fre[chars[r]]++;
+                r++;
             }
 
-            fre[chars[r++]]++;
+            ret = Math.max(ret, r - l);
+
+            do {
+                fre[chars[l]]--;
+                l++;
+            }
+            while (r < chars.length && chars[l - 1] != chars[r]);
+
+
         }
-        ret = Math.max(ret, r - l);
 
         return ret;
 
@@ -77,6 +82,32 @@ public class Q3 {
             ans = Math.max(ans, j - i + 1);
             index[s.charAt(j)] = j + 1;
         }
+
+
         return ans;
+    }
+
+
+    public int lengthOfLongestSubstring4(String s) {
+        int left = 0;
+        int right = 0;
+        int max = 0;
+        int[] arr = new int[255];
+        if (s == null) return max;
+        if ("".equals(s)) return max;
+        while (right < s.length()) {
+            int r = (int) s.charAt(right);
+            int l = s.substring(0, right).lastIndexOf(s.charAt(right)) + 1;
+            if (arr[r] == 0 || l < left) {
+                arr[r]++;
+                right++;
+            } else {
+                max = max > (right - left) ? max : (right - left);
+                left = l;
+                right++;
+            }
+        }
+        max = max > (right - left) ? max : (right - left);
+        return max;
     }
 }

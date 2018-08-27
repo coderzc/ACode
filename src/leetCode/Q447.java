@@ -27,14 +27,9 @@ public class Q447 {
             for (int j = 0; j < points.length; j++) {
                 if (j != i) {
                     int dis = dis(points[i], points[j]);
-                    Integer fre = record.get(dis);
-                    if (fre == null) {
-                        record.put(dis, 1);
-                    } else {
-                        record.put(dis, fre + 1);
-                    }
 //                    record.compute(dis,(k,v)->v==null?1:v+1);  Java8 写法2 性能有损失
 //                    record.merge(dis,1,(a,b)->a+b);            java8 写法3 性能有损失
+                    record.put(dis, record.getOrDefault(dis, 0) + 1); //性能还可以，以后就用它了
                 }
             }
 
