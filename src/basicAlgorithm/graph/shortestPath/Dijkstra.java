@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * 解决不含负权边的单源最短路径问题 O(E*logV)
+ * 解决含负权边的单源最短路径问题 O(E*logV)
  */
 public class Dijkstra {
     private Graph graph;
