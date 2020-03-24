@@ -14,6 +14,24 @@ public class QuickSort {
             System.out.println(a);
         }
     }
+    
+    /*
+    *挖坑、填坑partition
+    */
+      private static int partition(int[] nums,int low,int high){
+        int p = nums[low];
+        while(low<high) {
+            while(nums[high]>=p&&low<high){
+                high--;
+            }
+            swap(nums,high,low);
+            while(nums[low]<=p&&low<high) {
+                low++;
+            }
+            swap(nums,high,low);
+        }
+        return low;
+    }
 
     //基点中位数选取法(中位数法)
     private static int median3(int A[], int Left, int Right) {
