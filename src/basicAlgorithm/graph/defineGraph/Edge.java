@@ -5,9 +5,9 @@ package basicAlgorithm.graph.defineGraph;
  */
 
 public class Edge implements Comparable<Edge> {
-    private int verto;//邻接点，边的终点
-    private double weight;//权重
-    private int verfrom;//起始点
+    public int verto;//邻接点，边的终点
+    public double weight;//权重
+    public int verfrom;//起始点
 
     public Edge(int verfrom, int verto) {//无权图
         this.verto = verto;
