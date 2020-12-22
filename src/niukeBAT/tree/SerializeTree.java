@@ -24,9 +24,9 @@ public class SerializeTree {
         while (!queue.isEmpty()) {
             TreeNode poll = queue.poll();
             if(poll!=null){
-                stringBuilder.append(poll.data).append("!");
-                queue.offer(poll.leftNode);
-                queue.offer(poll.rightNode);
+                stringBuilder.append(poll.val).append("!");
+                queue.offer(poll.left);
+                queue.offer(poll.right);
             }else {
                 stringBuilder.append("#").append("!");
             }

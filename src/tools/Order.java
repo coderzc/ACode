@@ -9,9 +9,9 @@ public class Order {
         if(tree==null){
             return;
         }
-        System.out.print(tree.data);
-        preOrder(tree.leftNode);
-        preOrder(tree.rightNode);
+        System.out.print(tree.val);
+        preOrder(tree.left);
+        preOrder(tree.right);
     }
 
     //中序遍历(二叉搜索树排序)
@@ -19,9 +19,9 @@ public class Order {
         if(tree==null){
             return;
         }
-        inOrder(tree.leftNode);
-        System.out.print(tree.data);
-        inOrder(tree.rightNode);
+        inOrder(tree.left);
+        System.out.print(tree.val);
+        inOrder(tree.right);
     }
 
     //后序遍历
@@ -29,9 +29,9 @@ public class Order {
         if(tree==null){
             return;
         }
-        preOrder(tree.leftNode);
-        preOrder(tree.rightNode);
-        System.out.print(tree.data);
+        preOrder(tree.left);
+        preOrder(tree.right);
+        System.out.print(tree.val);
     }
 
     //层序遍历
@@ -40,11 +40,11 @@ public class Order {
         queue.offer(tree);
         while (!queue.isEmpty()){
             TreeNode node = queue.poll();
-            System.out.print(node.data);
-            if(node.leftNode!=null){
-                queue.offer(node.leftNode);
-            }if(node.rightNode!=null){
-                queue.offer(node.rightNode);
+            System.out.print(node.val);
+            if(node.left !=null){
+                queue.offer(node.left);
+            }if(node.right !=null){
+                queue.offer(node.right);
             }
         }
     }
@@ -61,15 +61,15 @@ public class Order {
         while (!queue.isEmpty()){
             TreeNode node = queue.poll();
             current--;
-            System.out.print(node.data+"\t");
+            System.out.print(node.val +"\t");
             if(current==0){
                 System.out.println("第"+number+"行");
             }
-            if(node.leftNode!=null){
-                queue.offer(node.leftNode);
+            if(node.left !=null){
+                queue.offer(node.left);
                 next++;
-            }if(node.rightNode!=null){
-                queue.offer(node.rightNode);
+            }if(node.right !=null){
+                queue.offer(node.right);
                 next++;
             }
             if(current==0){

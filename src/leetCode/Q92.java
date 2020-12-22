@@ -2,15 +2,6 @@ package leetCode;
 
 public class Q92 {
 
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (head == null) return null;
         int index = 1;
