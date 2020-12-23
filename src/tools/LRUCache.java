@@ -28,26 +28,26 @@ public class LRUCache {
         this.cap = cap;
     }
 
-    public Integer get(int k) {
-        Node node = hashMap.get(k);
+    public Integer get(int key) {
+        Node node = hashMap.get(key);
         if (node != null) {
             afterNodeAccess(node);
             return node.val;
         } else {
-            return null;
+            return -1;
         }
     }
 
-    public void put(int k, int v) {
-        Node node = hashMap.get(k);
+    public void put(int key, int value) {
+        Node node = hashMap.get(key);
         if (node == null) {
-            node = new Node(k, v);
+            node = new Node(key, value);
             if (hashMap.size() >= cap) {
                 dieOutNode();
             }
-            hashMap.put(k, node);
+            hashMap.put(key, node);
         } else {
-            node.val = v;
+            node.val = value;
         }
         afterNodeAccess(node);
     }
@@ -57,28 +57,41 @@ public class LRUCache {
     }
 
     private void afterNodeAccess(Node node) {
-        if (node.prev != null) {
-            if(node.next==null){
-                tail = node.prev;
-            }
-            node.prev.next = node.next;
+        Node lastFirst = head;
+        if (lastFirst == null) {
+            head = tail = node;
+            return;
+        }
+        if (node.key == lastFirst.key) {
+            return;
+        }
+
+        Node prevNode = node.prev;
+        Node nextNode = node.next;
+        if (prevNode != null) {
+            prevNode.next = nextNode;
             node.next = null;
         }
-        Node first = head;
-        head = node;
-        head.next = first;
-        if (first == null) {
-            tail = node;
-        }else {
-            first.prev = head;
+        if (nextNode != null) {
+            nextNode.prev = prevNode;
+            node.prev = null;
         }
+
+        if (prevNode != null && nextNode == null) {
+            tail = prevNode;
+        }
+
+        head = node;
+        head.next = lastFirst;
+        lastFirst.prev = head;
     }
 
     private void dieOutNode() {
         Node dieOutNode = tail;
         hashMap.remove(dieOutNode.key);
+        System.out.println("remove key :" + dieOutNode.key);
         tail = tail.prev;
-        if(tail!=null){
+        if (tail != null) {
             tail.next = null;
         }
     }
@@ -91,14 +104,26 @@ public class LRUCache {
         }
     }
 
+    /**
+     * ["LRUCache","put","put","put","put","get","get","get","get","put","get","get","get","get","get"]
+     * [[3],[1,1],[2,2],[3,3],[4,4],[4],[3],[2],[1],[5,5],[1],[2],[3],[4],[5]]
+     */
     public static void main(String[] args) {
         LRUCache lruCache = new LRUCache(3);
-        lruCache.put(1, 10);
-        lruCache.put(2, 10);
-        lruCache.get(1);
-        lruCache.put(3, 10);
-        lruCache.put(4, 10);
-//        lruCache.put(5, 10);
+        lruCache.put(1, 1);
+        lruCache.put(2, 2);
+        lruCache.put(3, 3);
+        lruCache.put(4, 4);
+        System.out.println(lruCache.get(4));
+        System.out.println(lruCache.get(3));
+        System.out.println(lruCache.get(2));
+        System.out.println(lruCache.get(1));
+        lruCache.put(5, 5);
+        System.out.println(lruCache.get(1));
+        System.out.println(lruCache.get(2));
+        System.out.println(lruCache.get(3));
+        System.out.println(lruCache.get(4));
+        System.out.println(lruCache.get(5));
 
         lruCache.iteration();
     }
