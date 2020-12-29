@@ -27,27 +27,23 @@ class ReverseLinkedListIi{
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (head == null) return null;
-        int index = 1;
-        ListNode l1 = head;
-        while (index != m) {
-            l1 = l1.next;
+        if(m == 1){
+            return reverseListN(head, n);
         }
-        ListNode l2 = l1;
-        while (index != n) {
-            l2 = l2.next;
-        }
-
-        ListNode pre = l2.next;
-        ListNode cur = l1;
-        while (cur != l2.next) {
-            ListNode temp = l1.next;
-            cur.next = pre;
-            pre = cur;
-            cur = temp;
-        }
-
+        head.next = reverseBetween(head.next, m - 1, n - 1);
         return head;
+    }
+
+    ListNode nextHead = null;
+    public ListNode reverseListN(ListNode head, int n){
+        if(n==1){
+            nextHead = head.next;
+            return head;
+        }
+        ListNode last = reverseListN(head.next, n - 1);
+        head.next.next = head;
+        head.next = nextHead;
+        return last;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
