@@ -28,7 +28,6 @@ public class Q349 {
             ret[i] = iterator.next();
             i++;
         }
-
         return ret;
 
     }
